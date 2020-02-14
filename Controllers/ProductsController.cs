@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AmigosAPI.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace AmigosAPI.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET api/products
         [HttpGet]
         public async Task<IActionResult> GetProducts()
@@ -27,6 +29,7 @@ namespace AmigosAPI.Controllers
             return Ok(products);
         }
 
+        [Authorize]
         // GET api/products/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
