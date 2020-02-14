@@ -19,7 +19,7 @@ namespace AmigosAPI.Controllers
             _context = context;
         }
 
-        // GET api/products.
+        // GET api/products
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
